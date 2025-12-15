@@ -169,7 +169,7 @@ cuddSetInteract(
     posn = ((((table->size << 1) - x - 3) * x) >> 1) + y - 1;
     word = posn >> LOGBPL;
     bit = posn & (BPL-1);
-    table->interact[word] |= 1L << bit;
+    table->interact[word] |= 1UL << bit;
 
 } /* end of cuddSetInteract */
 
@@ -239,7 +239,7 @@ cuddInitInteract(
 {
     int i,j,k;
     ABC_UINT64_T words;
-    long *interact;
+    unsigned long *interact;
     int *support;
     DdNode *f;
     DdNode *sentinel = &(table->sentinel);
@@ -248,7 +248,7 @@ cuddInitInteract(
     int n = table->size;
 
     words = ((n * (n-1)) >> (1 + LOGBPL)) + 1;
-    table->interact = interact = ABC_ALLOC(long,(unsigned)words);
+    table->interact = interact = ABC_ALLOC(unsigned long,(unsigned)words);
     if (interact == NULL) {
         table->errorCode = CUDD_MEMORY_OUT;
         return(0);

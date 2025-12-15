@@ -535,10 +535,10 @@ int Extra_ProfileWidth( DdManager * dd, DdNode * Func, int * pProfile, int CutLe
     // collect all nodes
     tNodes = Extra_CollectNodes( Func );
     // go though all the nodes and set the top level the cofactors are pointed from
-//  Cudd_ForeachNode( dd, Func, genDD, node )
+    // Cudd_ForeachNode( dd, Func, genDD, node )
     st__foreach_item( tNodes, gen, (const char**)&node, NULL )
     {
-//      assert( Cudd_Regular(node) );  // this procedure works only with ADD/ZDD (not BDD w/ compl.edges)
+        assert( Cudd_Regular(node) );  // this procedure works only with ADD/ZDD (not BDD w/ compl.edges)
         nodeR = Cudd_Regular(node);
         if ( cuddIsConstant(nodeR) )
             continue;

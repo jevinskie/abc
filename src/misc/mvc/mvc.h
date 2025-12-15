@@ -45,7 +45,7 @@ ABC_NAMESPACE_HEADER_START
 #define BITS_FULL             ((Mvc_CubeWord_t)0xffffffff)  // the mask of the type "11111111"
 
 // uncomment this macro to switch to standard memory management
-//#define USE_SYSTEM_MEMORY_MANAGEMENT 
+#define USE_SYSTEM_MEMORY_MANAGEMENT 
 
 ////////////////////////////////////////////////////////////////////////
 ///                    STRUCTURE DEFINITIONS                         ///

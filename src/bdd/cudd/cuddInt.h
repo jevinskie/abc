@@ -392,7 +392,7 @@ struct DdManager {      /* specialized DD symbol table */
     int *map;                   /* variable map for fast swap */
     DdNode **univ;              /* ZDD 1 for each variable */
     int linearSize;             /* number of rows and columns of linear */
-    long *interact;             /* interacting variable matrix */
+    unsigned long *interact;             /* interacting variable matrix */
     long *linear;               /* linear transform matrix */
     /* Memory Management */
     DdNode **memoryList;        /* memory manager for symbol table */

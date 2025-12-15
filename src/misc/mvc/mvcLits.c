@@ -78,7 +78,7 @@ int Mvc_CoverAnyLiteral( Mvc_Cover_t * pCover, Mvc_Cube_t * pMask )
                 // go through all the cubes
                 nLitsCur = 0;
                 Mvc_CoverForEachCube( pCover, pCube )
-                    if ( pCube->pData[nWord] & (1<<nBit) )
+                    if ( pCube->pData[nWord] & (1u<<nBit) )
                     {
                         nLitsCur++;
                         if ( nLitsCur > 1 )
@@ -120,7 +120,7 @@ int Mvc_CoverBestLiteral( Mvc_Cover_t * pCover, Mvc_Cube_t * pMask )
             // go through all the cubes
             nLitsCur = 0;
             Mvc_CoverForEachCube( pCover, pCube )
-                if ( pCube->pData[nWord] & (1<<nBit) )
+                if ( pCube->pData[nWord] & (1u<<nBit) )
                     nLitsCur++;
 
             // check if this is the best literal
@@ -178,7 +178,7 @@ int Mvc_CoverWorstLiteral( Mvc_Cover_t * pCover, Mvc_Cube_t * pMask )
             // go through all the cubes
             nLitsCur = 0;
             Mvc_CoverForEachCube( pCover, pCube )
-                if ( pCube->pData[nWord] & (1<<nBit) )
+                if ( pCube->pData[nWord] & (1u<<nBit) )
                     nLitsCur++;
 
             // skip the literal that does not occur or occurs once
