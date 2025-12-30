@@ -6,7 +6,9 @@
  */
 
 #include <iomanip>
+#if !defined(__wasm)
 #include <csignal>
+#endif
 #include <unistd.h>
 
 #ifdef __linux__

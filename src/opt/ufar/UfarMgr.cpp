@@ -14,8 +14,6 @@
 #include <array>
 #include <regex>
 
-#include <sys/wait.h>
-
 #include <base/wlc/wlc.h>
 #include <sat/cnf/cnf.h>
 #include <aig/gia/giaAig.h>
