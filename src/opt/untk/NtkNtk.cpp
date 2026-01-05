@@ -6,7 +6,6 @@
  */
 
 #include <unistd.h>
-#include <sys/wait.h>
 #include <fstream>
 
 #include <base/wlc/wlc.h>
