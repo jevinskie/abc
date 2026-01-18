@@ -63,6 +63,21 @@ char * Abc_UtilsGetVersion( Abc_Frame_t * pAbc )
     return Version;
 }
 
+void Abc_UtilsDumpCmds( Abc_Frame_t * pAbc )
+{
+    fprintf(pAbc->Out, "Abc_UtilsDumpCmds was run\n");
+    st__generator *gen = st__init_gen(pAbc->tCommands);
+    if (!gen) {
+        fprintf(pAbc->Out, "Abc_UtilsDumpCmds gen was null\n");
+        return;
+    }
+    const char *key, *value;
+    while (st__gen(gen, (const char **)&key, (char **)&value)) {
+        fprintf(pAbc->Out, "key: '%s' val: '%s'\n", key, value);
+    }
+    st__free_gen(gen);
+}
+
 /**Function*************************************************************
 
   Synopsis    []

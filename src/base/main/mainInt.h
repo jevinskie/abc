@@ -210,6 +210,7 @@ extern ABC_DLL Abc_Frame_t *   Abc_FrameAllocate();
 extern ABC_DLL void            Abc_FrameDeallocate( Abc_Frame_t * p );
 /*=== mvUtils.c =====================================================*/
 extern ABC_DLL char *          Abc_UtilsGetVersion( Abc_Frame_t * pAbc );
+extern ABC_DLL void            Abc_UtilsDumpCmds( Abc_Frame_t * pAbc );
 extern ABC_DLL char *          Abc_UtilsGetUsersInput( Abc_Frame_t * pAbc );
 extern ABC_DLL void            Abc_UtilsPrintHello( Abc_Frame_t * pAbc );
 extern ABC_DLL void            Abc_UtilsPrintUsage( Abc_Frame_t * pAbc, char * ProgName );

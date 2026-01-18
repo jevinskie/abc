@@ -360,6 +360,8 @@ int Abc_RealMain( int argc, char * argv[] )
             Abc_UtilsSource( pAbc );
         }
 
+        Abc_UtilsDumpCmds( pAbc );
+
         // execute commands given by the user
         while ( !feof(stdin) )
         {
