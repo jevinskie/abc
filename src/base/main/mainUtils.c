@@ -19,6 +19,7 @@
 ***********************************************************************/
 
 #include "base/abc/abc.h"
+#include "base/cmd/cmdInt.h"
 #include "mainInt.h"
 
 #ifdef ABC_USE_READLINE
@@ -71,9 +72,10 @@ void Abc_UtilsDumpCmds( Abc_Frame_t * pAbc )
         fprintf(pAbc->Out, "Abc_UtilsDumpCmds gen was null\n");
         return;
     }
-    const char *key, *value;
+    const char *key;
+    const Abc_Command *value;
     while (st__gen(gen, (const char **)&key, (char **)&value)) {
-        fprintf(pAbc->Out, "key: '%s' val: '%s'\n", key, value);
+        fprintf(pAbc->Out, "key: '%s' val: name '%s' group: '%s'\n", key, value->sName, value->sGroup);
     }
     st__free_gen(gen);
 }
