@@ -35441,7 +35441,7 @@ int Abc_CommandAbc9Ps( Abc_Frame_t * pAbc, int argc, char ** argv )
         if ( pAbc->pGiaBest == NULL )
         {
             Abc_Print( -1, "Abc_CommandAbc9Ps(): There is no AIG.\n" );
-            return 1;
+            return 0;
         }
         Gia_ManPrintStats( pAbc->pGiaBest, pPars );
     }
@@ -35450,7 +35450,7 @@ int Abc_CommandAbc9Ps( Abc_Frame_t * pAbc, int argc, char ** argv )
         if ( pAbc->pGia == NULL )
         {
             Abc_Print( -1, "Abc_CommandAbc9Ps(): There is no AIG.\n" );
-            return 1;
+            return 0;
         }
         Gia_ManPrintStats( pAbc->pGia, pPars );
     }
@@ -43136,7 +43136,7 @@ int Abc_CommandAbc9Verify( Abc_Frame_t * pAbc, int argc, char ** argv )
     char * pFileSpec = NULL;
     int c, nBTLimit = 1000, nTimeLim = 0, fSeq = 0, fObjIdMap = 0, fDumpFiles = 0, fVerbose = 0;
     Extra_UtilGetoptReset();
-    while ( ( c = Extra_UtilGetopt( argc, argv, "CTsmdvh" ) ) != EOF )
+    while ( ( c = Extra_UtilGetopt( argc, argv, "CTsydvh" ) ) != EOF )
     {
         switch ( c )
         {
@@ -43165,7 +43165,7 @@ int Abc_CommandAbc9Verify( Abc_Frame_t * pAbc, int argc, char ** argv )
         case 's':
             fSeq ^= 1;
             break;
-        case 'm':
+        case 'y':
             fObjIdMap ^= 1;
             break;
         case 'd':
@@ -43190,12 +43190,12 @@ int Abc_CommandAbc9Verify( Abc_Frame_t * pAbc, int argc, char ** argv )
     return 0;
 
 usage:
-    Abc_Print( -2, "usage: &verify [-CT num] [-smdvh] <file>\n" );
+    Abc_Print( -2, "usage: &verify [-CT num] [-sydvh] <file>\n" );
     Abc_Print( -2, "\t         performs verification of combinational design\n" );
     Abc_Print( -2, "\t-C num : the max number of conflicts at a node [default = %d]\n", nBTLimit );
     Abc_Print( -2, "\t-T num : approximate runtime limit in seconds [default = %d]\n",  nTimeLim );
     Abc_Print( -2, "\t-s     : toggle using sequential verification [default = %s]\n",  fSeq? "yes":"no");
-    Abc_Print( -2, "\t-m     : toggle producing object ID mapping (CEC only) [default = %s]\n", fObjIdMap? "yes":"no");
+    Abc_Print( -2, "\t-y     : toggle producing object ID mapping (CEC only) [default = %s]\n", fObjIdMap? "yes":"no");
     Abc_Print( -2, "\t-d     : toggle dumping AIGs to be compared [default = %s]\n",    fDumpFiles? "yes":"no");
     Abc_Print( -2, "\t-v     : toggle verbose output [default = %s]\n",                 fVerbose? "yes":"no");
     Abc_Print( -2, "\t-h     : print the command usage\n");
