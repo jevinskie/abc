@@ -5535,13 +5535,13 @@ else
 
 int r = rand() % Valid_Len;
 
-    if ((Valid_Ops)->pArray[r] == -1){ 
+    if (Valid_Ops->pArray[r] == -1){ 
         (*DecisionMask)->pArray[iterNode] = -1;
         ops_null++;
     Vec_IntZero(Valid_Ops); // reset updates
         continue;
     }
-    else if ((Valid_Ops->pArray[r]) == 0){
+    else if (Valid_Ops->pArray[r] == 0){
     // apply rewrite
         pGraph = (Dec_Graph_t *)Rwr_ManReadDecs(pManRwr);
         fCompl = Rwr_ManReadCompl(pManRwr);
@@ -5557,7 +5557,7 @@ Rwr_ManAddTimeUpdate( pManRwr, Abc_Clock() - clk );
     Vec_IntZero(Valid_Ops); // reset updates
         continue;
     }
-    else if ((Valid_Ops->pArray[r] == 1)){
+    else if (Valid_Ops->pArray[r] == 1){
     // apply res
         pManRes->nTotalGain += pManRes->nLastGain;
 clk = Abc_Clock();
@@ -5569,7 +5569,7 @@ pManRes->timeNtk += Abc_Clock() - clk;
     Vec_IntZero(Valid_Ops); // reset updates
         continue;
     }
-    else if ((Valid_Ops->pArray[r] == 2)){
+    else if (Valid_Ops->pArray[r] == 2){
 clk = Abc_Clock();
         if ( !Dec_GraphUpdateNetwork( pNode, pFFormRef, fUpdateLevel, pManRef->nLastGain ) )
                  {

@@ -613,7 +613,7 @@ namespace eSLIM {
     // else
     //     sprintf( pCommand, "%s -q %s > %s", pKissat, pFileNameIn, pFileNameOut );
 
-    sprintf( pCommand, "%s -q %s > %s", pKissat, pFileNameIn, pFileNameOut );
+    snprintf( pCommand, sizeof(Command), "%s -q %s > %s", pKissat, pFileNameIn, pFileNameOut );
 #ifdef __wasm
     if ( 1 ) {
 #else

@@ -28,6 +28,7 @@ OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWA
 **************************************************************************************************/
 
 #include <math.h>
+#include <inttypes.h>
 
 #include "sat/glucose/Sort.h"
 #include "sat/glucose/Solver.h"
@@ -1186,16 +1187,16 @@ double Solver::progressEstimate() const
 void Solver::printIncrementalStats() {
 
   printf("c---------- Glucose Stats -------------------------\n");
-  printf("c restarts              : %ld\n", starts);
-  printf("c nb ReduceDB           : %ld\n", nbReduceDB);
-  printf("c nb removed Clauses    : %ld\n", nbRemovedClauses);
-  printf("c nb learnts DL2        : %ld\n", nbDL2);
-  printf("c nb learnts size 2     : %ld\n", nbBin);
-  printf("c nb learnts size 1     : %ld\n", nbUn);
+  printf("c restarts              : %" PRId64 "\n", starts);
+  printf("c nb ReduceDB           : %" PRId64 "\n", nbReduceDB);
+  printf("c nb removed Clauses    : %" PRId64 "\n", nbRemovedClauses);
+  printf("c nb learnts DL2        : %" PRId64 "\n", nbDL2);
+  printf("c nb learnts size 2     : %" PRId64 "\n", nbBin);
+  printf("c nb learnts size 1     : %" PRId64 "\n", nbUn);
 
-  printf("c conflicts             : %ld\n", conflicts);
-  printf("c decisions             : %ld\n", decisions);
-  printf("c propagations          : %ld\n", propagations);
+  printf("c conflicts             : %" PRId64 "\n", conflicts);
+  printf("c decisions             : %" PRId64 "\n", decisions);
+  printf("c propagations          : %" PRId64 "\n", propagations);
 
   printf("c SAT Calls             : %d in %g seconds\n", nbSatCalls,   totalTime4Sat);
   printf("c UNSAT Calls           : %d in %g seconds\n", nbUnsatCalls, totalTime4Unsat);

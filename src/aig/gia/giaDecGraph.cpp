@@ -31,6 +31,7 @@
 #include <sstream>
 #include <iostream>
 #include <cstdint>
+#include <cinttypes>
 #include <iomanip>
 #include <set>
 #include <numeric>
@@ -1042,7 +1043,7 @@ void TruthTable::printPosition(void) {
     }
 
     for (const auto &i : irange(nVars())) {
-        printf("Place: %d -> Var[%ld]\n", i, _data->place_to_variable[i]);
+        printf("Place: %d -> Var[%" PRIu64 "]\n", i, _data->place_to_variable[i]);
     }
 }
 
@@ -1059,7 +1060,7 @@ std::string TruthTable::str(Format format) {
                 value |= (*this)[i * 4 + j] << (3 - j);
             }
             char buf[2];
-            sprintf(buf, "%X", value);
+            snprintf(buf, sizeof(buf), "%X", value);
             str += buf[0];
         }
     }
@@ -1080,7 +1081,7 @@ std::string TruthTable::strReverse(Format format) {
                 value |= (*this)[bits - (i * 4 + j) - 1] << (3 - j);
             }
             char buf[2];
-            sprintf(buf, "%X", value);
+            snprintf(buf, sizeof(buf), "%X", value);
             str += buf[0];
         }
     }
