@@ -117,7 +117,11 @@ if(${ABC_SKIP_LIB})
 endif()
 
 add_executable(abc ${ABC_MAIN_SRC})
-target_link_libraries(abc PRIVATE libabc)
+if(${ABC_SKIP_LIB})
+    target_link_libraries(abc PRIVATE libabc-obj)
+else()
+    target_link_libraries(abc PRIVATE libabc)
+endif()
 abc_properties(abc PRIVATE)
 
 add_library(libabc-pic EXCLUDE_FROM_ALL ${ABC_SRC})
