@@ -105,9 +105,16 @@ endfunction()
 set(ABC_MAIN_SRC src/base/main/main.c)
 list(REMOVE_ITEM ABC_SRC ${ABC_MAIN_SRC})
 
-add_library(libabc EXCLUDE_FROM_ALL ${ABC_SRC})
+add_library(libabc-obj OBJECT ${ABC_SRC})
+abc_properties(libabc-obj PRIVATE)
+
+add_library(libabc)
 abc_properties(libabc PUBLIC)
 set_property(TARGET libabc PROPERTY OUTPUT_NAME abc)
+target_link_libraries(libabc PUBLIC libabc-obj)
+if(${ABC_SKIP_LIB})
+    set_property(TARGET libabc PROPERTY EXCLUDE_FROM_ALL ON)
+endif()
 
 add_executable(abc ${ABC_MAIN_SRC})
 target_link_libraries(abc PRIVATE libabc)
