@@ -10,6 +10,9 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_STANDARD 17 CACHE STRING "the C++ standard to use for this project")
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# Options
+option(ABC_SKIP_TESTS "Skip testing")
+
 function(addprefix var prefix)
     foreach( s ${ARGN} )
         list(APPEND tmp "-I${s}")
@@ -115,7 +118,7 @@ abc_properties(libabc-pic PUBLIC)
 set_property(TARGET libabc-pic PROPERTY POSITION_INDEPENDENT_CODE ON)
 set_property(TARGET libabc-pic PROPERTY OUTPUT_NAME abc-pic)
 
-if(NOT DEFINED ABC_SKIP_TESTS)
+if(NOT ${ABC_SKIP_TESTS})
     enable_testing()
     include(FetchContent)
     FetchContent_Declare(
